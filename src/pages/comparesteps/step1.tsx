@@ -4,46 +4,36 @@ import { FaCheck } from "react-icons/fa";
 import rigidPipe from "../../assets/images/rigid-pipe.png";
 
 interface STEP1Props {
-  checkStatus: boolean[];
   togglecheckbox: (index: number) => void;
+  pipeLists: { id: number; name: string; description: string; image: string; checkStatus: boolean }[];
 }
 
-const STEP1: React.FC<STEP1Props> = ({ checkStatus, togglecheckbox }) => {
+const STEP1: React.FC<STEP1Props> = ({ togglecheckbox, pipeLists }) => {
   return (
     <>
       <Row>
-        <Col md={3} className="mb-3">
-            <div className="pipe-card">
-                <img src={rigidPipe} alt="Pipe Type 0" className="pipe-image" />
-                <h3 className="pipe-name">Reinforced Concrete Pipe</h3>
-                <p className="pipe-description"> Durable and long-lasting, ideal for various applications. </p>
-                <button className="checkbox-btn" >
-                    <span className="inner-circle">
-                        <FaCheck className="check-icon" />
-                    </span>
-                </button>
-            </div>
-        </Col>
-        {checkStatus.map((checked, index) => (
-          <Col md={3} className="mb-3" key={index}>
+        {pipeLists.map((listItem) => (
+          <Col md={3} className="mb-3" key={listItem.id}>
             <div className="pipe-card">
               <img
                 src={rigidPipe}
-                alt={`Pipe Type ${index + 1}`}
+                alt={`Pipe Type ${listItem.id}`}
                 className="pipe-image"
               />
-              <h3 className="pipe-name">Reinforced Concrete Pipe</h3>
+              <h3 className="pipe-name">{listItem.name}</h3>
               <p className="pipe-description">
-                Durable and long-lasting, ideal for various applications.
+                {listItem.description}
               </p>
-              <button
-                className={`checkbox-btn ${checked ? "checked" : ""}`}
-                onClick={() => togglecheckbox(index)}
-              >
-                <span className="inner-circle">
-                  {checked && <FaCheck className="check-icon" />}
+             <label className="checkbox-wrapper">
+                <input
+                    type="checkbox"
+                    checked={listItem.checkStatus}
+                    onChange={() => togglecheckbox(listItem.id)}
+                />
+                <span className="custom-check">
+                    {listItem.checkStatus && <FaCheck className="check-icon" />}
                 </span>
-              </button>
+                </label>
             </div>
           </Col>
         ))}

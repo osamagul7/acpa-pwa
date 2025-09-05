@@ -1,52 +1,73 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 import { FaCheck } from "react-icons/fa";
 import rigidPipe from "../../assets/images/rigid-pipe.png";
 
 interface STEP2Props {
-  checkStatus: boolean[];
   togglecheckbox: (index: number) => void;
 }
 
-const STEP2: React.FC<STEP2Props> = ({ checkStatus, togglecheckbox }) => {
+const STEP2: React.FC<STEP2Props> = ({ togglecheckbox }) => {
   return (
     <>
       <Row>
-        <Col md={3} className="mb-3">
-            <div className="pipe-card">
-                <img src={rigidPipe} alt="Pipe Type 0" className="pipe-image" />
-                <h3 className="pipe-name">Reinforced Concrete Pipe 555</h3>
-                <p className="pipe-description"> Durable and long-lasting, ideal for various applications. </p>
-                <button className="checkbox-btn" >
-                    <span className="inner-circle">
-                        <FaCheck className="check-icon" />
-                    </span>
-                </button>
-            </div>
-        </Col>
-        {checkStatus.map((checked, index) => (
-          <Col md={3} className="mb-3" key={index}>
-            <div className="pipe-card">
-              <img
-                src={rigidPipe}
-                alt={`Pipe Type ${index + 1}`}
-                className="pipe-image"
-              />
-              <h3 className="pipe-name">Reinforced Concrete Pipe</h3>
-              <p className="pipe-description">
-                Durable and long-lasting, ideal for various applications.
-              </p>
-              <button
-                className={`checkbox-btn ${checked ? "checked" : ""}`}
-                onClick={() => togglecheckbox(index)}
-              >
-                <span className="inner-circle">
-                  {checked && <FaCheck className="check-icon" />}
-                </span>
-              </button>
-            </div>
+          <Col md={4} className="mb-3">
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Pipe Size (in.)</Form.Label>
+                    <Form.Control type="number" name="pipe_size" />
+                </Form.Group>
           </Col>
-        ))}
+          <Col md={4} className="mb-3">
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Class</Form.Label>
+                    <Form.Control type="number" name="pipe_class" />
+                </Form.Group>
+          </Col>
+          <Col md={4} className="mb-3">
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Quantity (LF)</Form.Label>
+                    <Form.Control type="number" name="pipe_quantity" />
+                </Form.Group>
+          </Col>
+
+          <Col md={4} className="mb-3">
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Cost $/LF</Form.Label>
+                    <Form.Control type="number" name="pipe_quantity" />
+                </Form.Group>
+          </Col>
+          <Col md={4} className="mb-3">
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Bedding Soil</Form.Label>
+                     <Form.Select aria-label="Default select example">
+                        <option value="1">Sandy Slit</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </Form.Select>
+                </Form.Group>
+          </Col>
+          <Col md={4} className="mb-3">
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Cost $/Ton Delivered</Form.Label>
+                    <Form.Control type="number" name="pipe_quantity" />
+                </Form.Group>
+          </Col>
+          <Col md={4} className="mb-3">
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Embedment Soil</Form.Label>
+                    <Form.Select aria-label="Default select example">
+                        <option value="1">Gravelly Sand</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </Form.Select>
+                </Form.Group>
+          </Col>
+          <Col md={4} className="mb-3">
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Cost $/Ton Delivered</Form.Label>
+                    <Form.Control type="number" name="pipe_quantity" />
+                </Form.Group>
+          </Col>
       </Row>
     </>
   );

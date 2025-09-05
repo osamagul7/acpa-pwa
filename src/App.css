@@ -123,13 +123,65 @@
   margin-top: 5px;
 }
 
-.checkbox-btn {
+.checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+}
+
+.custom-check {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #30A79E;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: background 0.3s ease;
+}
+
+input[type="checkbox"]:checked + .custom-check {
+  background: #30A79E;
+  color: white;
+}
+
+input.form-control,select.form-select{
+  border: 2px solid #30A79E;
+}
+
+label.form-label {
+  position: relative;    /* So ::before positions relative to this */
+  padding-left: 12px;    /* Adjust space between ::before and text */
+}
+
+label.form-label::before {
+  background: #30A79E;
+  height: 18px;
+  width: 5px;
+  content: "";
+  position: absolute;
+  left: 0;               /* Stick to left edge */
+  top: 50%;              /* Vertically center */
+  transform: translateY(-50%);
+  border-radius: 20px;
+}
+/* .checkbox-btn {
   width: 28px;
   height: 28px;
-  border: 1px solid #ccc; /* Grey border */
+  border: 1px solid #ccc; 
   border-radius: 50%;
-  background: white; /* White inset */
-  padding: 3px; /* This creates white space */
+  background: white;
+  padding: 3px;  
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -143,7 +195,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #f0f0f0; /* Grey inner background when unchecked */
+  background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,20 +203,20 @@
 }
 
 .checkbox-btn.checked .inner-circle {
-  background: #28a745; /* Green inner circle when checked */
+  background: #28a745;
 }
 
 .check-icon {
   font-size: 14px;
-  color: #999; /* Grey tick by default */
+  color: #999;
   transition: color 0.3s ease;
 }
 
 .checkbox-btn.checked .check-icon {
-  color: #fff; /* White tick when checked */
-}
+  color: #fff; /* White tick when checked 
+} */
 
-.submit-button {
+.submit-button,.back-button {
   background-color: #fff;
   color: #384254;
   border: 1px solid #30A79E;
@@ -175,9 +227,9 @@
   transition: background-color 0.3s ease;
 }
 .submit-button:hover {
-  border-color: #30A79E;
+  border-color: #30A79E !important;
 }
-.proceed-comparison {
+.proceed-comparison,.next-button {
   background-color: #30A79E;
   color: #fff;
   border: none;
@@ -206,6 +258,36 @@
 .footer .nav-link-custom:last-child{
   border-right: none;
 }
+
+
+.step-indicator {
+  margin-bottom: 20px;
+}
+
+.step-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.step-item.active {
+  background: #007bff;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.step-item.completed {
+  background: #28a745;
+  color: #fff;
+}
+
 @media (min-width: 768px) {
   .hero-title {
     font-size: 4rem;

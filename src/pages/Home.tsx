@@ -1,18 +1,27 @@
 // Home page component for displaying main landing page content
 import React, { useState } from "react";
 import Header from "../layouts/shared/Header";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Form } from "react-bootstrap";
 import Footer from "../layouts/shared/Footer";
 import STEP1 from "./comparesteps/step1";
 import STEP2 from "./comparesteps/step2";
 
 const Home: React.FC = () => {
-  const [checkedStates, setCheckedStates] = useState([false, false, false]);
   const [currentStep, setCurrentStep] = useState(1);
+  const steps = [1, 2, 3];
 
-    const toggleCheckbox = (index: any) => {
-      setCheckedStates((prev) =>
-        prev.map((state, i) => (i === index ? !state : state))
+  const [pipeList, setPipeList] = useState([
+    { id: 1, name: "Rigid Pipe", description: "Concrete pipe with superior structural strength", image: "/path/to/image1.png", checkStatus: true },
+    { id: 2, name: "HDPE Pipe", description: "High-density polyethylene flexible pipe", image: "/path/to/image1.png", checkStatus: false },
+    { id: 3, name: "PVC Pipe", description: "Polyvinyl chloride rigid plastic pipe", image: "/path/to/image1.png", checkStatus: false },
+    { id: 4, name: "PP Pipe", description: "Polypropylene thermoplastic pipe", image: "/path/to/image1.png", checkStatus: false },
+  ]);
+
+    const toggleCheckbox = (id: number) => {
+      setPipeList((prev) =>
+        prev.map((pipe) =>
+        pipe.id === id ? { ...pipe, checkStatus: !pipe.checkStatus } : pipe
+        )
       );
     };
 
@@ -41,12 +50,29 @@ const Home: React.FC = () => {
             <p className="info-text">Choose which pipe types you want to include in your cost comparison analysis.</p>
             </Col>
           </Row>
+          <Form>
+            <Row className="mb-4">
+              <Col>
+                <div className="step-indicator d-flex justify-content-center">
+                  {steps.map((step, index) => (
+                    <div
+                      key={index}
+                      className={`step-item ${currentStep === step ? "active" : ""} ${
+                        currentStep > step ? "completed" : ""
+                      }`}
+                    >
+                      {step}
+                    </div>
+                  ))}
+                </div>
+              </Col>
+            </Row>
 
         {currentStep === 1 && (
-          <STEP1 checkStatus={checkedStates} togglecheckbox={toggleCheckbox} />
+          <STEP1 togglecheckbox={toggleCheckbox} pipeLists={pipeList} />
         )}
          {currentStep === 2 && (
-          <STEP2 checkStatus={checkedStates} togglecheckbox={toggleCheckbox} />
+          <STEP2  togglecheckbox={toggleCheckbox} />
         )} 
         
             <Row>
@@ -70,11 +96,12 @@ const Home: React.FC = () => {
                     >
                       Back
                     </button>
-                    <button className="submit-button ms-3">Finalize</button>
+                    <button className="next-button ms-3">Next</button>
                   </>
                 )}
               </Col>
             </Row>
+            </Form>
         </Container>
       </section>
     </div>

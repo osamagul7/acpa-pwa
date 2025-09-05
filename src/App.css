@@ -4,7 +4,6 @@
   color: #fff;
   padding: 10px 0;
 }
-.top-bar 
 
 .text-link {
   text-decoration: none;
@@ -78,6 +77,135 @@
   font-size: 3rem;
 }
 
+.info-section{
+  padding: 80px 0;
+}
+.info-title{
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0c1342;
+}
+
+.pipe-image{
+  width: 60px;
+  height: 60px;
+}
+
+.pipe-card{
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border:2px solid #ddd
+
+}
+
+.pipe-card img{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+.pipe-card img:hover{
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.pipe-card h3{
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.pipe-card p{
+  color: #555;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.checkbox-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ccc; /* Grey border */
+  border-radius: 50%;
+  background: white; /* White inset */
+  padding: 3px; /* This creates white space */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  outline: none;
+  margin: 0 auto;
+}
+
+.inner-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #f0f0f0; /* Grey inner background when unchecked */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.checkbox-btn.checked .inner-circle {
+  background: #28a745; /* Green inner circle when checked */
+}
+
+.check-icon {
+  font-size: 14px;
+  color: #999; /* Grey tick by default */
+  transition: color 0.3s ease;
+}
+
+.checkbox-btn.checked .check-icon {
+  color: #fff; /* White tick when checked */
+}
+
+.submit-button {
+  background-color: #fff;
+  color: #384254;
+  border: 1px solid #30A79E;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submit-button:hover {
+  border-color: #30A79E;
+}
+.proceed-comparison {
+  background-color: #30A79E;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.proceed-comparison:hover {
+  background-color: #249e94;
+}
+
+.footer{
+  background-color: #28a745;
+  padding: 10px 0;
+}
+.footer .nav-link-custom{
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+  border-right: 2px solid #fff;
+  padding: 0 15px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.footer .nav-link-custom:last-child{
+  border-right: none;
+}
 @media (min-width: 768px) {
   .hero-title {
     font-size: 4rem;

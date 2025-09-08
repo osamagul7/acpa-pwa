@@ -103,3 +103,36 @@ export const step2Fields: Step2Field[] = [
     inputType: "number",
   },
 ];
+
+export const topLinks = [
+  { label: "LOG IN", href: "#", show: "all" },
+  { label: "FAQs", href: "#", show: "all" },
+  { label: "CONTACT THE ACPA", href: "#", show: "md" },
+  { label: "HEAR FROM THE ACPA", href: "#", show: "md" },
+  { label: "PRESS & MEDIA", href: "#", show: "md" },
+];
+
+export const topIcons = [
+  { icon: "bi-search", href: "#", show: "md" },
+  { icon: "bi-person", href: "#", show: "md" },
+  { icon: "bi-list fs-4", href: "#", show: "sm" }, // only on mobile
+];
+
+export const navLinks = [
+  "Association",
+  "Resources",
+  "Education",
+  "Why Concrete",
+  "Events",
+  "QCAST",
+  "Safety",
+];
+
+export const footerLinks = [
+  { label: "All Rights reserved", href: "#" },
+  { label: "Login", href: "#" },
+  { label: "Faqs", href: "#" },
+  { label: "Contact The ACPA", href: "#" },
+  { label: "Hear From the ACPA", href: "#" },
+  { label: "Press & Media", href: "#" },
+];

@@ -291,3 +291,16 @@ label.form-label::before {
     font-size: 4rem;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .pipe-card{
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    min-height: 100px;;
+  }
+  .pipe-card .checkbox-wrapper{
+    margin-left: auto;
+  }
+  
+}

@@ -16,7 +16,7 @@ const STEP1: React.FC<STEP1Props> = ({ toggleCheckbox, pipeLists }) => {
                 className="pipe-image"
               />
               <h3 className="pipe-name">{listItem.name}</h3>
-              <p className="pipe-description">{listItem.description}</p>
+              <p className="pipe-description d-sm-block d-md-block d-none">{listItem.description}</p>
               <label className="checkbox-wrapper">
                 <input
                   type="checkbox"

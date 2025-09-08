@@ -1,15 +1,13 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import Header from "../../layouts/shared/Header";
+import React, { useCallback, useEffect, useState } from "react";
 import { Col, Container, Row, Form } from "react-bootstrap";
-import STEP1 from "../compare-steps/step1";
+import STEP1 from "../compare-steps/step-select.tsx";
 import { INITIAL_PIPES } from "../../utils/constant";
 import type { PipeItem } from "../../types/home";
 import { StepIndicator } from "./StepIndicator";
-import STEP2 from "../compare-steps/step2";
+import STEP2 from "../compare-steps/step-form.tsx";
 import ConcretePipe from "../../assets/images/concrete_pipe.png";
 import FlexiblePipe from "../../assets/images/flexible_pipe.png";
 import STEPCOMPARE from "../compare-steps/step-compare";
-
 
 const Home: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -28,11 +26,10 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const checkedCount = pipeList.filter((pipe) => pipe.checkStatus).length;
-    setTotalSteps(checkedCount+1);
+    setTotalSteps(checkedCount + 1);
   }, [pipeList]);
 
   const renderStep = () => {
-    debugger;
     if (currentStep === 1) {
       return <STEP1 toggleCheckbox={toggleCheckbox} pipeLists={pipeList} />;
     } else if (currentStep === 2 && currentStep <= totalSteps) {
@@ -85,7 +82,7 @@ const Home: React.FC = () => {
                 </Row>
               )}
 
-            {renderStep()}
+              {renderStep()}
 
               <Row>
                 <Col className="text-center mt-4 d-flex justify-content-between align-items-center">

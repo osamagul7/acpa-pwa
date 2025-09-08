@@ -2,16 +2,16 @@ import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import type { Step2Props } from "../../types/steps";
 import { step2Fields } from "../../utils/constant";
-import ConcretePipe from "../../assets/images/concrete_pipe.png";
+import FlexiblePipe from "../../assets/images/flexible_pipe.png";
 
-const STEP2: React.FC<Step2Props> = () => {
+const STEP4: React.FC<Step2Props> = () => {
   return (
     <Row className="steps-section p-4 bg-white rounded-4 shadow-sm">
       <div className="mb-4 text-center">
-        <h4 className="mb-4">Concrete Pipe Trench Detail</h4>
+        <h4 className="mb-4">Flexible Pipe Trench Detail</h4>
         <img
-          src={ConcretePipe}
-          alt="Concrete Pipe"
+          src={FlexiblePipe}
+          alt="Flexible Pipe"
         />
       </div>
       {step2Fields.map((field, idx) => (
@@ -37,4 +37,4 @@ const STEP2: React.FC<Step2Props> = () => {
   );
 };
 
-export default STEP2;
+export default STEP4;

@@ -7,11 +7,13 @@ import { INITIAL_PIPES } from "../../utils/constant";
 import type { PipeItem } from "../../types/home";
 import { StepIndicator } from "./StepIndicator";
 import STEP2 from "../compare-steps/step2";
+import STEP3 from "../compare-steps/step3";
+import STEP4 from "../compare-steps/step4";
 
 const Home: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
 
-  const steps = useMemo(() => [1, 2, 3], []);
+  const steps = useMemo(() => [1, 2, 3, 4], []);
 
   const [pipeList, setPipeList] = useState<PipeItem[]>(INITIAL_PIPES);
 
@@ -52,16 +54,20 @@ const Home: React.FC = () => {
             </Row>
 
             <Form>
+              {currentStep > 1 && (
               <Row className="mb-4">
                 <Col>
-                  <StepIndicator steps={steps} currentStep={currentStep} />
+                  <StepIndicator checkedPipe={pipeList} currentStep={currentStep-1} />
                 </Col>
               </Row>
+              )}
 
               {currentStep === 1 && (
                 <STEP1 toggleCheckbox={toggleCheckbox} pipeLists={pipeList} />
               )}
               {currentStep === 2 && <STEP2 toggleCheckbox={toggleCheckbox} />}
+              {currentStep === 3 && <STEP3 toggleCheckbox={toggleCheckbox} />}
+              {currentStep === 4 && <STEP4 toggleCheckbox={toggleCheckbox} />}
 
               <Row>
                 <Col className="text-center mt-4 d-flex justify-content-between align-items-center">
@@ -86,12 +92,12 @@ const Home: React.FC = () => {
                     </>
                   )}
 
-                  {currentStep === 2 && (
+                  {currentStep > 1 && (
                     <>
                       <button
                         type="button"
                         className="back-button"
-                        onClick={() => setCurrentStep(1)}
+                        onClick={() => setCurrentStep(currentStep - 1)}
                         aria-label="Go back"
                       >
                         Back
@@ -100,7 +106,7 @@ const Home: React.FC = () => {
                       <button
                         type="button"
                         className="next-button ms-3"
-                        onClick={() => {}}
+                        onClick={() => setCurrentStep(currentStep + 1)}
                       >
                         Next
                       </button>

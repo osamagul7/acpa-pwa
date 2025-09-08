@@ -1,8 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { FaCheck } from "react-icons/fa";
-import rigidPipe from "../../assets/images/rigid-pipe.png";
 import type { STEP1Props } from "../../types/steps";
+import { FiCheck } from "react-icons/fi";
 
 const STEP1: React.FC<STEP1Props> = ({ toggleCheckbox, pipeLists }) => {
   return (
@@ -12,8 +11,8 @@ const STEP1: React.FC<STEP1Props> = ({ toggleCheckbox, pipeLists }) => {
           <Col md={3} className="mb-3" key={listItem.id}>
             <div className="pipe-card">
               <img
-                src={rigidPipe}
-                alt={`Pipe Type ${listItem.id}`}
+                src={listItem.image}
+                alt={`Pipe Type ${listItem.name}`}
                 className="pipe-image"
               />
               <h3 className="pipe-name">{listItem.name}</h3>
@@ -25,7 +24,7 @@ const STEP1: React.FC<STEP1Props> = ({ toggleCheckbox, pipeLists }) => {
                   onChange={() => toggleCheckbox(listItem.id)}
                 />
                 <span className="custom-check">
-                  {listItem.checkStatus && <FaCheck className="check-icon" />}
+                  {listItem.checkStatus && <FiCheck className="check-icon" />}
                 </span>
               </label>
             </div>

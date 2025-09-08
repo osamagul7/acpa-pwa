@@ -1,4 +1,9 @@
 /* Top bar styling */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F4F6FA;
+}
 .top-bar {
   background: #0c1342;
   color: #fff;
@@ -98,7 +103,13 @@
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border:2px solid #ddd
+  border:2px solid #ddd;
+  background-color: #fff;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -141,18 +152,22 @@
 .custom-check {
   width: 24px;
   height: 24px;
-  border: 2px solid #30A79E;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #f3f3f3;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: #f3f3f3;
   transition: background 0.3s ease;
 }
 
 input[type="checkbox"]:checked + .custom-check {
   background: #30A79E;
   color: white;
+    color: white;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #f3f3f3;
 }
 
 input.form-control,select.form-select{
@@ -175,46 +190,6 @@ label.form-label::before {
   transform: translateY(-50%);
   border-radius: 20px;
 }
-/* .checkbox-btn {
-  width: 28px;
-  height: 28px;
-  border: 1px solid #ccc; 
-  border-radius: 50%;
-  background: white;
-  padding: 3px;  
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  outline: none;
-  margin: 0 auto;
-}
-
-.inner-circle {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-}
-
-.checkbox-btn.checked .inner-circle {
-  background: #28a745;
-}
-
-.check-icon {
-  font-size: 14px;
-  color: #999;
-  transition: color 0.3s ease;
-}
-
-.checkbox-btn.checked .check-icon {
-  color: #fff; /* White tick when checked 
-} */
 
 .submit-button,.back-button {
   background-color: #fff;
@@ -259,33 +234,52 @@ label.form-label::before {
   border-right: none;
 }
 
-
 .step-indicator {
   margin-bottom: 20px;
 }
+.step-item{
+  position: relative;
+}
 
-.step-item {
-  width: 40px;
-  height: 40px;
+.step-item .step-number {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #ddd;
+  background: #fff;
+  border: 2px solid #ddd;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 10px;
+  margin: 0 40px;
   font-weight: bold;
   transition: 0.3s;
+  position: relative;
+  z-index: 2;
 }
 
-.step-item.active {
-  background: #007bff;
-  color: #fff;
-  transform: scale(1.1);
+.step-item.active .step-number{
+  border-color: #30A79E;
 }
 
-.step-item.completed {
-  background: #28a745;
+.step-item.completed .step-number{
+  background: #30A79E;
   color: #fff;
+}
+.step-item .step-name{
+  font-weight: 500;
+  font-size: 14px;
+  color: #1D1B20;
+}
+
+.linebar{
+  position: absolute;
+    top: -7px;
+    z-index: 1;
+    left: 43px;
+    width: 100px;
+}
+.step-item:last-child .linebar{
+  width: 0;
 }
 
 @media (min-width: 768px) {

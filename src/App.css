@@ -105,12 +105,16 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border:2px solid #ddd;
   background-color: #fff;
-  height: 240px;
+  min-height: 240px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+}
+
+.pipe-card.active_card,.pipe-card.active_card table tr td{
+  background-color: #F2F8ED;
 }
 
 .pipe-card img{

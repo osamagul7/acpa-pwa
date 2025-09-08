@@ -2,15 +2,14 @@ import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import type { Step2Props } from "../../types/steps";
 import { step2Fields } from "../../utils/constant";
-import ConcretePipe from "../../assets/images/concrete_pipe.png";
 
-const STEP2: React.FC<Step2Props> = () => {
+const STEP2: React.FC<Step2Props> = ({stepImage}) => {
   return (
     <Row className="steps-section p-4 bg-white rounded-4 shadow-sm">
       <div className="mb-4 text-center">
         <h4 className="mb-4">Concrete Pipe Trench Detail</h4>
         <img
-          src={ConcretePipe}
+          src={stepImage}
           alt="Concrete Pipe"
         />
       </div>

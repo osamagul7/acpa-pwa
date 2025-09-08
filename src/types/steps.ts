@@ -1,5 +1,6 @@
 export interface Step2Props {
   toggleCheckbox: (index: number) => void;
+  stepImage?: string;
 }
 
 export interface STEP1Props {

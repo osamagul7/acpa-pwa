@@ -1,16 +1,26 @@
-import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 const Header = () => {
   return (
     <>
-    <header className="top-bar">
+      <header className="top-bar">
         <Container className="d-flex">
           <div className="d-flex gap-3 small">
-            <a href="#" className="text-link">LOG IN</a>
-            <a href="#" className="text-link">FAQs</a>
-            <a href="#" className="d-none d-md-inline text-link">CONTACT THE ACPA</a>
-            <a href="#" className="d-none d-md-inline text-link">HEAR FROM THE ACPA</a>
-            <a href="#" className="d-none d-md-inline text-link">PRESS & MEDIA</a>
+            <a href="#" className="text-link">
+              LOG IN
+            </a>
+            <a href="#" className="text-link">
+              FAQs
+            </a>
+            <a href="#" className="d-none d-md-inline text-link">
+              CONTACT THE ACPA
+            </a>
+            <a href="#" className="d-none d-md-inline text-link">
+              HEAR FROM THE ACPA
+            </a>
+            <a href="#" className="d-none d-md-inline text-link">
+              PRESS & MEDIA
+            </a>
           </div>
           <div className="d-flex gap-3">
             <a href="#" className="d-none d-md-inline icon-link">
@@ -37,21 +47,35 @@ const Header = () => {
             </span>
           </Navbar.Brand>
           <Nav className="ms-auto fw-semibold">
-            <Nav.Link href="#" className="nav-link-custom">Association</Nav.Link>
-            <Nav.Link href="#" className="nav-link-custom">Resources</Nav.Link>
-            <Nav.Link href="#" className="nav-link-custom">Education</Nav.Link>
-            <Nav.Link href="#" className="nav-link-custom">Why Concrete</Nav.Link>
-            <Nav.Link href="#" className="nav-link-custom">Events</Nav.Link>
-            <Nav.Link href="#" className="nav-link-custom">QCAST</Nav.Link>
-            <Nav.Link href="#" className="nav-link-custom">Safety</Nav.Link>
+            <Nav.Link href="#" className="nav-link-custom">
+              Association
+            </Nav.Link>
+            <Nav.Link href="#" className="nav-link-custom">
+              Resources
+            </Nav.Link>
+            <Nav.Link href="#" className="nav-link-custom">
+              Education
+            </Nav.Link>
+            <Nav.Link href="#" className="nav-link-custom">
+              Why Concrete
+            </Nav.Link>
+            <Nav.Link href="#" className="nav-link-custom">
+              Events
+            </Nav.Link>
+            <Nav.Link href="#" className="nav-link-custom">
+              QCAST
+            </Nav.Link>
+            <Nav.Link href="#" className="nav-link-custom">
+              Safety
+            </Nav.Link>
             <Nav.Link href="#" className="nav-link-custom">
               <i className="bi bi-search"></i>
             </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
-      </>
-    );
+    </>
+  );
 };
 
 export default Header;

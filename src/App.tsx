@@ -5,16 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 const App: React.FC = () => {
-  React.useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("/sw.js")
-          .then((reg) => console.log("SW registered", reg))
-          .catch((err) => console.error("SW registration failed", err));
-      });
-    }
-  }, []);
   return (
     <Router>
       <Routes>

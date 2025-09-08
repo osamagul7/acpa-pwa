@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Header from "../../layouts/shared/Header";
 import { Col, Container, Row, Form } from "react-bootstrap";
-import Footer from "../../layouts/shared/Footer";
 import STEP1 from "../compare-steps/step1";
 import { INITIAL_PIPES } from "../../utils/constant";
 import type { PipeItem } from "../../types/home";
@@ -50,8 +49,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header />
-
       <div className="home-page">
         <section className="hero-section">
           <Container>
@@ -78,11 +75,14 @@ const Home: React.FC = () => {
 
             <Form>
               {currentStep > 1 && (
-              <Row className="mb-4">
-                <Col>
-                  <StepIndicator checkedPipe={pipeList} currentStep={currentStep-1} />
-                </Col>
-              </Row>
+                <Row className="mb-4">
+                  <Col>
+                    <StepIndicator
+                      checkedPipe={pipeList}
+                      currentStep={currentStep - 1}
+                    />
+                  </Col>
+                </Row>
               )}
 
             {renderStep()}
@@ -136,8 +136,6 @@ const Home: React.FC = () => {
           </Container>
         </section>
       </div>
-
-      <Footer />
     </>
   );
 };

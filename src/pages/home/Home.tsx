@@ -1,7 +1,5 @@
-import React, { useCallback, useMemo, useState } from "react";
-import Header from "../../layouts/shared/Header";
+import React, { useCallback, useState } from "react";
 import { Col, Container, Row, Form } from "react-bootstrap";
-import Footer from "../../layouts/shared/Footer";
 import STEP1 from "../compare-steps/step1";
 import { INITIAL_PIPES } from "../../utils/constant";
 import type { PipeItem } from "../../types/home";
@@ -12,8 +10,6 @@ import STEP4 from "../compare-steps/step4";
 
 const Home: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
-
-  const steps = useMemo(() => [1, 2, 3, 4], []);
 
   const [pipeList, setPipeList] = useState<PipeItem[]>(INITIAL_PIPES);
 
@@ -27,8 +23,6 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header />
-
       <div className="home-page">
         <section className="hero-section">
           <Container>
@@ -55,11 +49,14 @@ const Home: React.FC = () => {
 
             <Form>
               {currentStep > 1 && (
-              <Row className="mb-4">
-                <Col>
-                  <StepIndicator checkedPipe={pipeList} currentStep={currentStep-1} />
-                </Col>
-              </Row>
+                <Row className="mb-4">
+                  <Col>
+                    <StepIndicator
+                      checkedPipe={pipeList}
+                      currentStep={currentStep - 1}
+                    />
+                  </Col>
+                </Row>
               )}
 
               {currentStep === 1 && (
@@ -118,8 +115,6 @@ const Home: React.FC = () => {
           </Container>
         </section>
       </div>
-
-      <Footer />
     </>
   );
 };
